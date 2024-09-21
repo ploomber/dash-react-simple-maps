@@ -1,0 +1,11 @@
+include dash_react_simple_maps/dash_react_simple_maps.min.js
+include dash_react_simple_maps/dash_react_simple_maps.min.js.map
+include dash_react_simple_maps/async-*.js
+include dash_react_simple_maps/async-*.js.map
+include dash_react_simple_maps/*-shared.js
+include dash_react_simple_maps/*-shared.js.map
+include dash_react_simple_maps/metadata.json
+include dash_react_simple_maps/package-info.json
+include README.md
+include LICENSE
+include package.json

@@ -1,0 +1,290 @@
+{
+  "src/lib/components/DashReactSimpleMaps.react.js": {
+    "description": "DashReactSimpleMaps is a component that displays a world map.\nIt uses react-simple-maps to render the map and allows for annotations, lines, and markers.",
+    "displayName": "DashReactSimpleMaps",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "annotations": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "coordinates": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                },
+                "required": true
+              },
+              "dx": {
+                "name": "number",
+                "required": false
+              },
+              "dy": {
+                "name": "number",
+                "required": false
+              },
+              "connectorProps": {
+                "name": "object",
+                "required": false
+              },
+              "text": {
+                "name": "string",
+                "required": true
+              },
+              "textColor": {
+                "name": "string",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "A list of annotations to be displayed on the map.",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "lines": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "from": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                },
+                "required": true
+              },
+              "to": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                },
+                "required": true
+              },
+              "stroke": {
+                "name": "string",
+                "required": false
+              },
+              "strokeWidth": {
+                "name": "number",
+                "required": false
+              },
+              "strokeLinecap": {
+                "name": "string",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "A list of lines to be displayed on the map.",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "markers": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "name": {
+                "name": "string",
+                "required": true
+              },
+              "coordinates": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                },
+                "required": true
+              },
+              "markerOffset": {
+                "name": "number",
+                "required": false
+              },
+              "markerColor": {
+                "name": "string",
+                "required": false
+              },
+              "textColor": {
+                "name": "string",
+                "required": false
+              },
+              "fontSize": {
+                "name": "string",
+                "required": false
+              },
+              "textStrokeColor": {
+                "name": "string",
+                "required": false
+              },
+              "textStrokeWidth": {
+                "name": "number",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "A list of markers to be displayed on the map.",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "projectionConfig": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "rotate": {
+              "name": "arrayOf",
+              "value": {
+                "name": "number"
+              },
+              "required": false
+            },
+            "center": {
+              "name": "arrayOf",
+              "value": {
+                "name": "number"
+              },
+              "required": false
+            },
+            "scale": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Configuration for the map projection."
+      },
+      "projection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The projection to use for the map.",
+        "defaultValue": {
+          "value": "\"geoMercator\"",
+          "computed": false
+        }
+      },
+      "style": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "default": {
+              "name": "object",
+              "required": false
+            },
+            "hover": {
+              "name": "object",
+              "required": false
+            },
+            "pressed": {
+              "name": "object",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "The style configuration for the Geography component."
+      },
+      "geoUrl": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The URL or path to the GeoJSON or TopoJSON file.",
+        "defaultValue": {
+          "value": "\"https://raw.githubusercontent.com/MinnPost/simple-map-d3/refs/heads/master/example-data/world-population.geo.json\"",
+          "computed": false
+        }
+      },
+      "colorProperty": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The name of the property in the GeoJSON to use for coloring.",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "colorDomain": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "number"
+          }
+        },
+        "required": false,
+        "description": "The domain for the color scale (tuple of two numbers).",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "colorRange": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "The range for the color scale (tuple of two color strings).",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "stroke": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The color of the stroke for the map."
+      },
+      "strokeWidth": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The width of the stroke for the map."
+      },
+      "fill": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The fill color of the map."
+      }
+    }
+  }
+}
