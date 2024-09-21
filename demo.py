@@ -12,7 +12,9 @@ app = Dash(__name__, external_scripts=external_scripts)
 
 
 geoUrl = "https://raw.githubusercontent.com/MinnPost/simple-map-d3/refs/heads/master/example-data/world-population.geo.json"
-geoUrl = json.loads(Path("world-population.geo.json").read_text())
+
+# this also works
+# geoUrl = json.loads(Path("world-population.geo.json").read_text())
 
 
 map_basic = dash_react_simple_maps.DashReactSimpleMaps(
