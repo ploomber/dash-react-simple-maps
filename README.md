@@ -19,7 +19,7 @@ Open: http://localhost:8050
 
 The `demo.py` file showcases various examples of using Dash React Simple Maps. Here's a breakdown of each map type:
 
-1. Basic Map
+1. Basic Map:
    A simple world map with basic styling.
    ```python
    map_basic = dash_react_simple_maps.DashReactSimpleMaps(
@@ -32,7 +32,7 @@ The `demo.py` file showcases various examples of using Dash React Simple Maps. H
    )
    ```
 
-2. Styled Map
+2. Styled Map:
    A map with custom styling for default and hover states.
    ```python
    map_styled = dash_react_simple_maps.DashReactSimpleMaps(
@@ -54,7 +54,7 @@ The `demo.py` file showcases various examples of using Dash React Simple Maps. H
    )
    ```
 
-3. Map with Annotations
+3. Map with Annotations:
    A map featuring text annotations for different continents.
    ```python
    map_annotations = dash_react_simple_maps.DashReactSimpleMaps(
@@ -76,7 +76,7 @@ The `demo.py` file showcases various examples of using Dash React Simple Maps. H
    )
    ```
 
-4. Map with Custom Projection Configuration
+4. Map with Custom Projection Configuration:
    A map demonstrating custom projection settings.
    ```python
    map_projection_config = dash_react_simple_maps.DashReactSimpleMaps(
@@ -91,7 +91,7 @@ The `demo.py` file showcases various examples of using Dash React Simple Maps. H
    )
    ```
 
-5. Map with Markers
+5. Map with Markers:
    A map showing various cities with custom markers.
    ```python
    map_markers = dash_react_simple_maps.DashReactSimpleMaps(
@@ -114,7 +114,7 @@ The `demo.py` file showcases various examples of using Dash React Simple Maps. H
    )
    ```
 
-6. Map with Lines
+6. Map with Lines:
    A map displaying lines connecting different locations.
    ```python
    map_lines = dash_react_simple_maps.DashReactSimpleMaps(
@@ -134,7 +134,7 @@ The `demo.py` file showcases various examples of using Dash React Simple Maps. H
    )
    ```
 
-7. Map with Color Property
+7. Map with Color Property:
    A map that colors regions based on a specific property (population in this case).
    ```python
    map_colorproperty = dash_react_simple_maps.DashReactSimpleMaps(
@@ -147,7 +147,7 @@ The `demo.py` file showcases various examples of using Dash React Simple Maps. H
    )
    ```
 
-8. Demo Map
+8. Demo Map:
    A comprehensive map combining color property and custom styling.
    ```python
    map_demo = dash_react_simple_maps.DashReactSimpleMaps(
