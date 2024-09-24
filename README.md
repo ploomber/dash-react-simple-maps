@@ -1,5 +1,7 @@
 # Dash React Simple Maps
 
+Live demo: [dash-react-simple-maps.ploomberapp.io](https://dash-react-simple-maps.ploomberapp.io/)
+
 ## Installation
 
 ```sh
