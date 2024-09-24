@@ -6,10 +6,12 @@
 pip install dash-react-simple-maps
 ```
 
-## Demo
+## Run demo locally
 
 ```sh
-python demo.py
+cd demo
+pip install -r requirements.txt
+python app.py
 ```
 
 Open: http://localhost:8050
