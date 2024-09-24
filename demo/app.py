@@ -9,7 +9,7 @@ from dash_react_simple_maps.constants import ProjectionType, ProjectionConfig, S
 external_scripts = ["https://cdn.tailwindcss.com"]
 
 app = Dash(__name__, external_scripts=external_scripts)
-
+server = app.server
 
 geoUrl = "https://raw.githubusercontent.com/MinnPost/simple-map-d3/refs/heads/master/example-data/world-population.geo.json"
 
