@@ -1,3 +1,6 @@
+deps/
+inst/
+man/
 *.geo.json
 *.min.js
 *.min.js.map
