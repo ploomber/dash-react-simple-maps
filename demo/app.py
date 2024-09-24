@@ -224,6 +224,28 @@ app.layout = html.Div(
             ),
             className="flex justify-center mb-6",
         ),
+        html.Footer(
+            html.P(
+                [
+                    "Hosted in ",
+                    html.A(
+                        "Ploomber Cloud",
+                        href="https://ploomber.io",
+                        target="_blank",
+                        className="text-blue-500 hover:text-blue-700",
+                    ),
+                    " • ",
+                    "Star on ",
+                    html.A(
+                        "GitHub",
+                        href="https://github.com/ploomber/dash-react-simple-maps",
+                        target="_blank",
+                        className="text-blue-500 hover:text-blue-700",
+                    ),
+                ]
+            ),
+            className="text-center text-gray-600 mt-8",
+        ),
     ],
     className="min-h-screen bg-gradient-to-r from-blue-100 to-green-100 p-6",
 )
