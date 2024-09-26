@@ -10,6 +10,9 @@ class ProjectionType(str, Enum):
     def __str__(self):
         return self.value
 
+    def __repr__(self):
+        return f"ProjectionType.{self.name}"
+
     GEO_EQUAL_EARTH = "geoEqualEarth"
     GEO_ALBERS = "geoAlbers"
     GEO_ALBERS_USA = "geoAlbersUsa"

@@ -1,9 +1,12 @@
 from pathlib import Path
 import json
+import inspect
+import black
 
 import dash_react_simple_maps
 from dash import Dash, html, Input, Output, callback_context
 from dash_react_simple_maps.constants import ProjectionType, ProjectionConfig, Style
+from dash_react_syntax_highlighter import DashReactSyntaxHighlighter
 
 # Tailwind CSS CDN
 external_scripts = ["https://cdn.tailwindcss.com"]
@@ -17,8 +20,25 @@ geoUrl = "https://raw.githubusercontent.com/MinnPost/simple-map-d3/refs/heads/ma
 # geoUrl = json.loads(Path("world-population.geo.json").read_text())
 
 
-map_basic = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-basic",
+def create_map_with_code(id, **kwargs):
+    map_instance = dash_react_simple_maps.DashReactSimpleMaps(id=id, **kwargs)
+
+    # Generate code string
+    args_str = ", ".join([f"{k}={repr(v)}" for k, v in kwargs.items()])
+    code_str = (
+        "from dash_react_simple_maps import DashReactSimpleMaps\n"
+        "from dash_react_simple_maps.constants import ProjectionType\n\n"
+        f"DashReactSimpleMaps(\n    id='{id}',\n    {args_str}\n)"
+    )
+
+    # Format code string with black
+    code_str = black.format_str(code_str, mode=black.Mode(line_length=88))
+
+    return map_instance, code_str
+
+
+map_basic, code_basic = create_map_with_code(
+    "map-basic",
     geoUrl=geoUrl,
     projection=ProjectionType.GEO_AZIMUTHAL_EQUAL_AREA,
     stroke="#6c757d",
@@ -26,8 +46,8 @@ map_basic = dash_react_simple_maps.DashReactSimpleMaps(
     fill="#f9f7f3",
 )
 
-map_styled = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-styled",
+map_styled, code_styled = create_map_with_code(
+    "map-styled",
     geoUrl=geoUrl,
     projection=ProjectionType.GEO_AZIMUTHAL_EQUAL_AREA,
     style=Style(
@@ -44,8 +64,8 @@ map_styled = dash_react_simple_maps.DashReactSimpleMaps(
     ),
 )
 
-map_annotations = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-annotations",
+map_annotations, code_annotations = create_map_with_code(
+    "map-annotations",
     annotations=[
         {
             "coordinates": [-100, 40],
@@ -75,8 +95,8 @@ map_annotations = dash_react_simple_maps.DashReactSimpleMaps(
     strokeWidth=0.4,
 )
 
-map_projection_config = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-projectionconfig",
+map_projection_config, code_projection_config = create_map_with_code(
+    "map-projectionconfig",
     geoUrl=geoUrl,
     projection=ProjectionType.GEO_AZIMUTHAL_EQUIDISTANT,
     projectionConfig=ProjectionConfig(
@@ -86,8 +106,8 @@ map_projection_config = dash_react_simple_maps.DashReactSimpleMaps(
     ),
 )
 
-map_markers = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-markers",
+map_markers, code_markers = create_map_with_code(
+    "map-markers",
     projection=ProjectionType.GEO_MERCATOR,
     geoUrl=geoUrl,
     markers=[
@@ -124,8 +144,8 @@ map_markers = dash_react_simple_maps.DashReactSimpleMaps(
     ],
 )
 
-map_lines = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-lines",
+map_lines, code_lines = create_map_with_code(
+    "map-lines",
     projection=ProjectionType.GEO_MERCATOR,
     lines=[
         {
@@ -146,9 +166,8 @@ map_lines = dash_react_simple_maps.DashReactSimpleMaps(
     geoUrl=geoUrl,
 )
 
-
-map_colorproperty = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-colorproperty",
+map_colorproperty, code_colorproperty = create_map_with_code(
+    "map-colorproperty",
     projection=ProjectionType.GEO_MERCATOR,
     geoUrl=geoUrl,
     colorProperty="POP2005",
@@ -156,9 +175,8 @@ map_colorproperty = dash_react_simple_maps.DashReactSimpleMaps(
     colorRange=["#FFF", "#06F"],
 )
 
-
-map_demo = dash_react_simple_maps.DashReactSimpleMaps(
-    id="map-demo",
+map_demo, code_demo = create_map_with_code(
+    "map-demo",
     projection=ProjectionType.GEO_MERCATOR,
     geoUrl=geoUrl,
     colorProperty="POP2005",
@@ -173,17 +191,16 @@ map_demo = dash_react_simple_maps.DashReactSimpleMaps(
     },
 )
 
-
-# Define a mapping of map types to their corresponding components
+# Define a mapping of map types to their corresponding components and code
 map_types = {
-    "demo": map_demo,
-    "styled": map_styled,
-    "basic": map_basic,
-    "annotations": map_annotations,
-    "projectionconfig": map_projection_config,
-    "markers": map_markers,
-    "lines": map_lines,
-    "colorproperty": map_colorproperty,
+    "demo": (map_demo, code_demo),
+    "styled": (map_styled, code_styled),
+    "basic": (map_basic, code_basic),
+    "annotations": (map_annotations, code_annotations),
+    "projectionconfig": (map_projection_config, code_projection_config),
+    "markers": (map_markers, code_markers),
+    "lines": (map_lines, code_lines),
+    "colorproperty": (map_colorproperty, code_colorproperty),
 }
 
 DEFAULT_MAP = "demo"
@@ -208,6 +225,20 @@ map_container = html.Div(
     className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden",
 )
 
+# Create a container for the code
+code_container = html.Div(
+    [
+        html.H2("Code", className="text-2xl font-bold mb-2"),
+        DashReactSyntaxHighlighter(
+            id="code-display",
+            code="",
+            language="python",
+            styleName="okaidia",
+        ),
+    ],
+    className="mt-8 w-full max-w-3xl mx-auto",
+)
+
 app.layout = html.Div(
     [
         html.H1(
@@ -216,6 +247,7 @@ app.layout = html.Div(
         ),
         map_buttons,
         map_container,
+        code_container,
         html.Div(className="h-8"),  # Add extra space
         html.Div(
             html.Pre(
@@ -252,7 +284,7 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output("map-container", "children"),
+    [Output("map-container", "children"), Output("code-display", "code")],
     [Input(f"btn-{map_type}", "n_clicks") for map_type in map_types.keys()],
 )
 def update_map(*button_clicks):
