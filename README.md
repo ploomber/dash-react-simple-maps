@@ -17,6 +17,10 @@
 <br/>
 
 
+https://github.com/user-attachments/assets/f849af08-09fd-4b48-9693-0292029ca7f5
+
+
+
 Live demo: [dash-react-simple-maps.ploomberapp.io](https://dash-react-simple-maps.ploomberapp.io/)
 
 ## Installation
