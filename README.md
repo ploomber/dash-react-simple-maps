@@ -1,4 +1,21 @@
-# Dash React Simple Maps
+<p align="center">
+    <h1 align="center"><b>Dash React Simple Maps</b></h1>
+	<p align="center">
+		Beautiful maps for your Dash apps.
+    <br />
+    <br />
+    <br />
+    <img width="100" height="100" src="https://avatars.githubusercontent.com/u/60114551?s=200&v=4" alt="Ploomber Logo">
+    <br />
+    <b>  Made by <a href="https://ploomber.io">Ploomber</a> with ❤️</b>
+    <br />
+    <br />
+    <i>Deploy your Dash application on <a href="https://ploomber.io">Ploomber.io</a> for free.</i>
+    <br />
+  </p>
+</p>
+<br/>
+
 
 Live demo: [dash-react-simple-maps.ploomberapp.io](https://dash-react-simple-maps.ploomberapp.io/)
 
