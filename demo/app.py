@@ -262,7 +262,7 @@ app.layout = html.Div(
                     "Hosted in ",
                     html.A(
                         "Ploomber Cloud",
-                        href="https://ploomber.io",
+                        href="https://ploomber.io/?utm_source=dash-react-simple-maps&utm_medium=demo",
                         target="_blank",
                         className="text-blue-500 hover:text-blue-700",
                     ),
@@ -270,7 +270,7 @@ app.layout = html.Div(
                     "Star on ",
                     html.A(
                         "GitHub",
-                        href="https://github.com/ploomber/dash-react-simple-maps",
+                        href="https://github.com/ploomber/dash-react-simple-maps/?utm_source=dash-react-simple-maps&utm_medium=demo",
                         target="_blank",
                         className="text-blue-500 hover:text-blue-700",
                     ),
