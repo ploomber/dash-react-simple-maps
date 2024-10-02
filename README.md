@@ -209,7 +209,7 @@ pip install -r tests/requirements.txt
 
 ```sh
 npm run build
-python demo.py
+python demo/app.py
 ```
 
 

@@ -1,5 +1,5 @@
-dash
-dash-react-simple-maps
+dash-react-simple-maps>=0.0.2
+dash-react-syntax-highlighter>=0.0.2
 black
 ploomber-cloud
-dash-react-syntax-highlighter
+dash
